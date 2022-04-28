@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>ACADA Learning Releases Nexus Repository</name>
-	      <url>http://http://3.135.182.103:8081/repository/voke-release/</url>
+	      <url>http://172.31.7.60:8081/repository/abiba-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>ACADA Learning Snapshot Nexus Repository </name>
-	      <url>http://http://3.135.182.103:8081/repository/voke-snapshot/</url>
+	      <url>http://172.31.7.60:8081/repository/abiba-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
