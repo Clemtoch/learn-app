@@ -1,0 +1,25 @@
+pipeline{
+agent any
+tools {
+    maven "maven 3.8.4"
+}
+stages{
+stage ('clone'){
+steps{
+sh "git clone https://github.com/Clemtoch/abib-app.git"
+sh "echo this will clone the repositoryy"
+}
+}
+stage ('build'){
+steps{
+sh "mvn package"
+}
+}
+stage ('codequality'){
+steps{
+sh "mvn sonar:sonar"
+sh "echo this will test the code"
+}
+}
+}
+}
