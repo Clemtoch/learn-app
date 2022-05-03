@@ -28,8 +28,7 @@ stage('4.backupArchitfacts'){
   }
  stage('5.Deploytostaging'){
      steps{
-         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
-     }
+         deploy adapters: [tomcat9(credentialsId: 'tom-cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
  }
  stage('6.Approval'){
     steps{
@@ -41,12 +40,12 @@ stage('4.backupArchitfacts'){
 }
  stage('7.Deploytoproduction'){
      steps{
-         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'tom-cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
      }
  }
- stage('8.Emailnotification'){
+ stage('8.Slacknotification'){
   steps{
-    emailext body: 'The build is success', subject: 'Build Success', to: 'acada@acadalearning.com'
+ slackSend channel: 'cohort6group1', message: 'The build was succesful'
   }
  }
 }
