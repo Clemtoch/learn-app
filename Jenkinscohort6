@@ -1,13 +1,13 @@
   pipeline{
     agent any
     tools{
-      maven "maven3.8.4"
+      maven "maven 3.8.4"
     }
 stages{
   stage('1.GitClone'){
   steps{
     sh "echo Github cloning"
-    git 'https://github.com/team16flight/web-app.git'
+    git 'https://github.com/Clemtoch/learn-app.git'
   }
 }
 stage('2.MavenBuild'){
@@ -28,7 +28,7 @@ stage('4.backupArchitfacts'){
   }
  stage('5.Deploytostaging'){
      steps{
-         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://54.226.211.219:7000/')], contextPath: null, war: 'target/*.war'
+         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
      }
  }
  stage('6.Approval'){
@@ -39,9 +39,9 @@ stage('4.backupArchitfacts'){
     }
   }
 }
- stage('7.Deploytostaging'){
+ stage('7.Deploytoproduction'){
      steps{
-         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://54.226.211.219:7000/')], contextPath: null, war: 'target/*.war'
+         deploy adapters: [tomcat9(credentialsId: 'tomcat_Cred', path: '', url: 'http://18.217.254.239:8080/')], contextPath: null, war: 'target/*.war'
      }
  }
  stage('8.Emailnotification'){
