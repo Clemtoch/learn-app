@@ -1,2 +1,2 @@
-FROM tomcat:8.0.20-jre8
+FROM tomcat:jre8-temurin-focal
 COPY target/*.war /usr/local/tomcat/webapps/black.war
